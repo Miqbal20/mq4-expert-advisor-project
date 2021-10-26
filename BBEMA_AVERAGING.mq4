@@ -55,7 +55,6 @@ label();
 
 //----
     double ma = iMA(Symbol(), 0, 13 , 0, MODE_EMA, PRICE_CLOSE, 1 ) ;
-
     double BBUpNow = iBands(Symbol(),0,20,2,0,PRICE_CLOSE,MODE_UPPER,0);
     double BBLowNow = iBands(Symbol(),0,20,2,0,PRICE_CLOSE,MODE_LOWER,0);  
     double BBUp = iBands(Symbol(),0,20,2,0,PRICE_CLOSE,MODE_UPPER,1);
@@ -97,11 +96,11 @@ label();
     double low4 = iLow(Symbol(),0,4);
     double low5 = iLow(Symbol(),0,5);
     
-    if((high<ma) && (low<BBLow) && (low2<BBLow_2) && (low3<BBLow_3) && (low4<BBLow_4) && (low5<BBLow_5)){     
+    if((high<ma) && (low<BBLow) && (low2<BBLow_2) && (low3<BBLow_3) && (low4<BBLow_4)){     
         signal=2; 
     }
         
-    if((low>ma) && (high>BBUp) && (high2>BBUp_2) && (high3>BBUp_3) && (high4>BBUp_4)  && (high5>BBUp_5)){
+    if((low>ma) && (high>BBUp) && (high2>BBUp_2) && (high3>BBUp_3) && (high4>BBUp_4)){
       signal = 1;
     } 
    
@@ -143,7 +142,6 @@ if(money()>TP_in_money && jumlahorder(0)<=2){
    }
  }
 //+------------------------------------------------------------------+
-
 int Jam_trade()
 {
    bool trade = false;
@@ -242,7 +240,6 @@ void label()
    "\n :: Equity sekarang        : ", AccountEquity(),"  $",
    "\n ------------------------------------------------",
    "\n :: Posisi floting         :", NormalizeDouble(money(),2),"  $",
-
    "\n :: Jumlah level           :",jumlahorder(0)+jumlahorder(1),
    "\n ------------------------------------------------");
 //+------------------------------------------------------------------+
